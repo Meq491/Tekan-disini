@@ -1,133 +1,134 @@
-<!-- SOSIAL MEDIA -->
-<div class="social-menu">
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <button class="social-btn instagram" onclick="buka('instagram')">
-        <span class="social-icon">◎</span>
-        <span>Instagram</span>
-    </button>
-
-    <button class="social-btn facebook" onclick="buka('facebook')">
-        <span class="social-icon">f</span>
-        <span>Facebook</span>
-    </button>
-
-    <button class="social-btn telegram" onclick="buka('telegram')">
-        <span class="social-icon">➤</span>
-        <span>Telegram</span>
-    </button>
-
-</div>
-
-
-<!-- HALAMAN INSTAGRAM -->
-<div id="instagram" class="halaman-sosmed">
-
-    <div class="logo-instagram">◎</div>
-
-    <h2>Instagram</h2>
-    <p>@meqq491</p>
-
-    <a href="https://www.instagram.com/meqq491/"
-       target="_blank"
-       class="buka-akun instagram-bg">
-       Buka Instagram
-    </a>
-
-    <button onclick="kembali()" class="kembali">
-        ← Kembali
-    </button>
-
-</div>
-
-
-<!-- HALAMAN FACEBOOK -->
-<div id="facebook" class="halaman-sosmed">
-
-    <div class="logo-facebook">f</div>
-
-    <h2>Facebook</h2>
-    <p>MEQ MEMBAWA TEPAK</p>
-
-    <a href="https://www.facebook.com/share/1JuqSUvVT6/"
-       target="_blank"
-       class="buka-akun facebook-bg">
-       Buka Facebook
-    </a>
-
-    <button onclick="kembali()" class="kembali">
-        ← Kembali
-    </button>
-
-</div>
-
-
-<!-- HALAMAN TELEGRAM -->
-<div id="telegram" class="halaman-sosmed">
-
-    <div class="logo-telegram">➤</div>
-
-    <h2>Telegram</h2>
-    <p>@meq491</p>
-
-    <a href="https://t.me/meq491"
-       target="_blank"
-       class="buka-akun telegram-bg">
-       Buka Telegram
-    </a>
-
-    <button onclick="kembali()" class="kembali">
-        ← Kembali
-    </button>
-
-</div>
-
+<title>MEQ491 - Sosial Media</title>
 
 <style>
 
-/* MENU SOSMED */
-
-.social-menu{
-    display:flex;
-    flex-direction:column;
-    gap:16px;
-    width:100%;
-    max-width:650px;
-    margin:20px auto;
+* {
+    box-sizing: border-box;
 }
 
-.social-btn{
-    width:100%;
-    min-height:70px;
-    border:none;
-    border-radius:18px;
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:flex-start;
-    gap:18px;
-    padding:15px 22px;
-    font-size:20px;
-    font-weight:800;
-    cursor:pointer;
-    box-shadow:0 6px 18px rgba(0,0,0,.35);
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #080808;
+    color: white;
+    min-height: 100vh;
 }
 
-.social-icon{
-    width:45px;
-    height:45px;
-    border-radius:12px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:rgba(255,255,255,.18);
-    font-size:29px;
-    font-weight:900;
+.container {
+    max-width: 500px;
+    margin: auto;
+    padding: 30px 20px;
+    text-align: center;
 }
 
-/* WARNA APLIKASI */
 
-.instagram{
-    background:linear-gradient(
+/* LOGO MEQ */
+
+.logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #111;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 15px;
+
+    font-size: 25px;
+    font-weight: bold;
+
+    border: 2px solid #333;
+}
+
+
+/* JUDUL */
+
+h1 {
+    margin: 10px 0 5px;
+    font-size: 30px;
+}
+
+.subtitle {
+    color: #aaa;
+    margin-bottom: 30px;
+}
+
+
+/* TOMBOL SOSIAL */
+
+.social {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    text-decoration: none;
+    color: white;
+
+    background: #151515;
+
+    border: 1px solid #292929;
+
+    border-radius: 15px;
+
+    padding: 15px;
+
+    margin: 12px 0;
+
+    transition: 0.2s;
+}
+
+.social:hover {
+    transform: scale(1.02);
+    background: #202020;
+}
+
+
+/* LOGO SOSIAL */
+
+.icon {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 25px;
+    font-weight: bold;
+
+    flex-shrink: 0;
+}
+
+
+/* FACEBOOK */
+
+.facebook {
+    background: #1877f2;
+}
+
+
+/* TELEGRAM */
+
+.telegram {
+    background: #229ed9;
+}
+
+
+/* INSTAGRAM */
+
+.instagram {
+    background: linear-gradient(
         135deg,
         #833ab4,
         #fd1d1d,
@@ -135,160 +136,135 @@
     );
 }
 
-.facebook{
-    background:#1877f2;
+
+/* TEKS */
+
+.text {
+    text-align: left;
 }
 
-.telegram{
-    background:#229ed9;
+.text strong {
+    display: block;
+    font-size: 17px;
 }
 
-
-/* HALAMAN */
-
-.halaman-sosmed{
-    display:none;
-    width:100%;
-    max-width:650px;
-    margin:20px auto;
-    padding:30px 20px;
-    text-align:center;
-    background:#111;
-    border:1px solid #292929;
-    border-radius:20px;
-}
-
-.halaman-sosmed h2{
-    color:white;
-    font-size:27px;
-    margin:12px 0 8px;
-}
-
-.halaman-sosmed p{
-    color:#aaa;
-    font-size:17px;
-    margin-bottom:25px;
-}
-
-
-/* LOGO BESAR */
-
-.logo-instagram,
-.logo-facebook,
-.logo-telegram{
-    width:80px;
-    height:80px;
-    margin:auto;
-    border-radius:22px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:white;
-    font-size:48px;
-    font-weight:900;
-}
-
-.logo-instagram{
-    background:linear-gradient(
-        135deg,
-        #833ab4,
-        #fd1d1d,
-        #fcb045
-    );
-}
-
-.logo-facebook{
-    background:#1877f2;
-}
-
-.logo-telegram{
-    background:#229ed9;
-}
-
-
-/* TOMBOL BUKA AKUN */
-
-.buka-akun{
-    display:block;
-    width:100%;
-    padding:17px;
-    border-radius:14px;
-    color:white;
-    text-decoration:none;
-    font-size:17px;
-    font-weight:800;
-}
-
-.instagram-bg{
-    background:linear-gradient(
-        135deg,
-        #833ab4,
-        #fd1d1d,
-        #fcb045
-    );
-}
-
-.facebook-bg{
-    background:#1877f2;
-}
-
-.telegram-bg{
-    background:#229ed9;
-}
-
-
-/* KEMBALI */
-
-.kembali{
-    width:100%;
-    margin-top:14px;
-    padding:16px;
-    border:1px solid #333;
-    border-radius:14px;
-    background:#1b1b1b;
-    color:white;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.kembali:hover{
-    background:#292929;
+.text span {
+    color: #999;
+    font-size: 13px;
 }
 
 </style>
+</head>
 
 
-<script>
+<body>
 
-function buka(nama){
+<div class="container">
 
-    document.querySelector('.social-menu').style.display='none';
 
-    document.querySelectorAll('.halaman-sosmed').forEach(function(halaman){
-        halaman.style.display='none';
-    });
+    <!-- LOGO -->
 
-    document.getElementById(nama).style.display='block';
+    <div class="logo">
+        MEQ
+    </div>
 
-    window.scrollTo({
-        top:0,
-        behavior:'smooth'
-    });
-}
 
-function kembali(){
+    <!-- JUDUL -->
 
-    document.querySelectorAll('.halaman-sosmed').forEach(function(halaman){
-        halaman.style.display='none';
-    });
+    <h1>
+        MEQ491
+    </h1>
 
-    document.querySelector('.social-menu').style.display='flex';
+    <div class="subtitle">
+        Sosial Media
+    </div>
 
-    window.scrollTo({
-        top:0,
-        behavior:'smooth'
-    });
-}
 
-</script>
+    <!-- FACEBOOK -->
+
+    <a
+        class="social"
+        href="https://www.facebook.com/share/1JuqSUvVT6/"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+
+        <div class="icon facebook">
+            f
+        </div>
+
+        <div class="text">
+
+            <strong>
+                Facebook
+            </strong>
+
+            <span>
+                Kunjungi akun Facebook saya
+            </span>
+
+        </div>
+
+    </a>
+
+
+    <!-- TELEGRAM -->
+
+    <a
+        class="social"
+        href="https://t.me/meq491"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+
+        <div class="icon telegram">
+            ✈
+        </div>
+
+        <div class="text">
+
+            <strong>
+                Telegram
+            </strong>
+
+            <span>
+                @meq491
+            </span>
+
+        </div>
+
+    </a>
+
+
+    <!-- INSTAGRAM -->
+
+    <a
+        class="social"
+        href="https://www.instagram.com/meqq491/"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+
+        <div class="icon instagram">
+            ◎
+        </div>
+
+        <div class="text">
+
+            <strong>
+                Instagram
+            </strong>
+
+            <span>
+                @meqq491
+            </span>
+
+        </div>
+
+    </a>
+
+
+</div>
+
+</body>
+</html>
