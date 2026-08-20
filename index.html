@@ -1,31 +1,4 @@
-<!-- TOMBOL SOSIAL MEDIA -->
-<div class="social-menu">
-
-    <a href="https://www.instagram.com/meqq491/" target="_blank">
-        📸 Instagram
-    </a>
-
-    <a href="https://www.facebook.com/share/1JuqSUvVT6/" target="_blank">
-        📘 Facebook
-    </a>
-
-    <a href="https://t.me/meq491" target="_blank">
-        ✈️ Telegram
-    </a>
-
-    <button onclick="openCoffee()">
-        ☕ Buat Ngopi
-    </button>
-
-</div>
-
-
-<!-- HALAMAN BUAT NGOPI -->
-<div id="coffeePage" class="coffee-page">
-
-    <button onclick="closeCoffee()" class="back-button">
-        ← Kembali
-    </button>
+<div id="ngopi" class="halaman">
 
     <h2>☕ BUAT NGOPI</h2>
 
@@ -34,99 +7,13 @@
         <b>MEQ MEMBAWA TEPAK</b>.
     </p>
 
-    <!-- FOTO QRIS -->
     <img
         src="qris.png"
-        alt="QRIS Buat Ngopi"
-        class="qris-image"
-    >
+        alt="Buat Ngopi"
+        class="foto-qris">
+
+    <button onclick="kembali()" class="btn-kembali">
+        ← Kembali
+    </button>
 
 </div>
-
-
-<style>
-.social-menu{
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-}
-
-.social-menu a,
-.social-menu button{
-    width:100%;
-    padding:15px;
-    border:0;
-    border-radius:12px;
-    background:#151515;
-    color:white;
-    text-decoration:none;
-    text-align:center;
-    font-size:16px;
-    font-weight:bold;
-}
-
-.social-menu a:hover,
-.social-menu button:hover{
-    background:#222;
-}
-
-.coffee-page{
-    display:none;
-    padding:20px;
-    text-align:center;
-}
-
-.coffee-page h2{
-    color:#00ff88;
-    margin:20px 0 10px;
-}
-
-.coffee-page p{
-    color:#ccc;
-    margin-bottom:20px;
-}
-
-.qris-image{
-    display:block;
-    width:100%;
-    max-width:380px;
-    height:auto;
-    margin:20px auto;
-    padding:8px;
-    background:white;
-    border-radius:15px;
-}
-
-.back-button{
-    width:100%;
-    padding:14px;
-    border:0;
-    border-radius:12px;
-    background:#222;
-    color:white;
-    font-weight:bold;
-}
-</style>
-
-
-<script>
-function openCoffee(){
-    document.querySelector('.social-menu').style.display = 'none';
-    document.getElementById('coffeePage').style.display = 'block';
-
-    window.scrollTo({
-        top:0,
-        behavior:'smooth'
-    });
-}
-
-function closeCoffee(){
-    document.getElementById('coffeePage').style.display = 'none';
-    document.querySelector('.social-menu').style.display = 'flex';
-
-    window.scrollTo({
-        top:0,
-        behavior:'smooth'
-    });
-}
-</script>
