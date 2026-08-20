@@ -8,149 +8,306 @@
 
 <style>
 
-* {
-    box-sizing: border-box;
+*{
+    box-sizing:border-box;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #080808;
-    color: white;
-    min-height: 100vh;
+body{
+    margin:0;
+    min-height:100vh;
+
+    font-family:Arial,sans-serif;
+
+    color:white;
+
+    /* BACKGROUND ESTETIK */
+    background:
+        radial-gradient(circle at 20% 20%, rgba(0,255,136,.12), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(80,120,255,.12), transparent 30%),
+        radial-gradient(circle at 50% 50%, rgba(255,0,120,.06), transparent 35%),
+        #050505;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow-x:hidden;
 }
 
-.container {
-    max-width: 500px;
-    margin: auto;
-    padding: 30px 20px;
-    text-align: center;
+
+/* EFEK CAHAYA */
+
+body::before{
+    content:"";
+
+    position:fixed;
+
+    width:300px;
+    height:300px;
+
+    background:rgba(0,255,136,.08);
+
+    filter:blur(90px);
+
+    border-radius:50%;
+
+    top:-100px;
+    left:-100px;
+
+    pointer-events:none;
+}
+
+body::after{
+    content:"";
+
+    position:fixed;
+
+    width:300px;
+    height:300px;
+
+    background:rgba(0,140,255,.08);
+
+    filter:blur(90px);
+
+    border-radius:50%;
+
+    bottom:-120px;
+    right:-100px;
+
+    pointer-events:none;
 }
 
 
-/* LOGO MEQ */
+/* CONTAINER */
 
-.logo {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    background: #111;
+.container{
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width:100%;
+    max-width:500px;
 
-    margin: 0 auto 15px;
+    padding:35px 20px;
 
-    font-size: 25px;
-    font-weight: bold;
+    text-align:center;
 
-    border: 2px solid #333;
+    position:relative;
+    z-index:2;
+}
+
+
+/* LOGO */
+
+.logo{
+
+    width:95px;
+    height:95px;
+
+    margin:0 auto 15px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(15,15,15,.9);
+
+    border:2px solid #333;
+
+    font-size:26px;
+    font-weight:900;
+
+    box-shadow:
+        0 0 30px rgba(0,255,136,.12);
 }
 
 
 /* JUDUL */
 
-h1 {
-    margin: 10px 0 5px;
-    font-size: 30px;
+h1{
+
+    margin:8px 0 5px;
+
+    font-size:32px;
+
+    font-weight:900;
+
+    letter-spacing:1px;
 }
 
-.subtitle {
-    color: #aaa;
-    margin-bottom: 30px;
-}
+.subtitle{
 
+    color:#999;
 
-/* TOMBOL SOSIAL */
+    margin-bottom:32px;
 
-.social {
-    display: flex;
-    align-items: center;
-
-    gap: 15px;
-
-    text-decoration: none;
-    color: white;
-
-    background: #151515;
-
-    border: 1px solid #292929;
-
-    border-radius: 15px;
-
-    padding: 15px;
-
-    margin: 12px 0;
-
-    transition: 0.2s;
-}
-
-.social:hover {
-    transform: scale(1.02);
-    background: #202020;
+    font-size:14px;
 }
 
 
-/* LOGO SOSIAL */
+/* MENU */
 
-.icon {
-    width: 50px;
-    height: 50px;
+.social-list{
 
-    border-radius: 12px;
+    display:flex;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction:column;
 
-    font-size: 25px;
-    font-weight: bold;
+    align-items:center;
 
-    flex-shrink: 0;
+    gap:16px;
+}
+
+
+/* TOMBOL */
+
+.social{
+
+    width:100%;
+
+    min-height:76px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:17px;
+
+    padding:13px 18px;
+
+    text-decoration:none;
+
+    color:white;
+
+    border-radius:18px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:rgba(20,20,20,.82);
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.35);
+
+    transition:.25s ease;
+}
+
+
+/* HOVER */
+
+.social:hover{
+
+    transform:translateY(-3px) scale(1.01);
+
+    border-color:rgba(255,255,255,.2);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.5);
+}
+
+
+/* LOGO APLIKASI */
+
+.icon{
+
+    width:52px;
+    height:52px;
+
+    min-width:52px;
+
+    border-radius:15px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:29px;
+    font-weight:900;
+
+    color:white;
+
+    box-shadow:
+        inset 0 0 10px rgba(255,255,255,.15);
 }
 
 
 /* FACEBOOK */
 
-.facebook {
-    background: #1877f2;
+.facebook .icon{
+
+    background:#1877f2;
 }
 
 
 /* TELEGRAM */
 
-.telegram {
-    background: #229ed9;
+.telegram .icon{
+
+    background:#229ed9;
 }
 
 
 /* INSTAGRAM */
 
-.instagram {
-    background: linear-gradient(
-        135deg,
-        #833ab4,
-        #fd1d1d,
-        #fcb045
-    );
+.instagram .icon{
+
+    background:
+        linear-gradient(
+            135deg,
+            #833ab4,
+            #fd1d1d,
+            #fcb045
+        );
 }
 
 
 /* TEKS */
 
-.text {
-    text-align: left;
+.text{
+
+    text-align:left;
+
+    flex:1;
 }
 
-.text strong {
-    display: block;
-    font-size: 17px;
+.text strong{
+
+    display:block;
+
+    font-size:18px;
+
+    margin-bottom:4px;
 }
 
-.text span {
-    color: #999;
-    font-size: 13px;
+.text span{
+
+    color:#999;
+
+    font-size:13px;
+}
+
+
+/* PANAH */
+
+.arrow{
+
+    color:#777;
+
+    font-size:22px;
+
+    padding-right:5px;
+}
+
+
+/* FOOTER */
+
+.footer{
+
+    margin-top:28px;
+
+    color:#555;
+
+    font-size:12px;
 }
 
 </style>
@@ -158,6 +315,7 @@ h1 {
 
 
 <body>
+
 
 <div class="container">
 
@@ -180,88 +338,113 @@ h1 {
     </div>
 
 
-    <!-- FACEBOOK -->
+    <!-- SOSIAL MEDIA -->
 
-    <a
-        class="social"
-        href="https://www.facebook.com/share/1JuqSUvVT6/"
-        target="_blank"
-        rel="noopener noreferrer"
-    >
-
-        <div class="icon facebook">
-            f
-        </div>
-
-        <div class="text">
-
-            <strong>
-                Facebook
-            </strong>
-
-            <span>
-                Kunjungi akun Facebook saya
-            </span>
-
-        </div>
-
-    </a>
+    <div class="social-list">
 
 
-    <!-- TELEGRAM -->
+        <!-- FACEBOOK -->
 
-    <a
-        class="social"
-        href="https://t.me/meq491"
-        target="_blank"
-        rel="noopener noreferrer"
-    >
+        <a
+            class="social facebook"
+            href="https://www.facebook.com/share/1JuqSUvVT6/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
 
-        <div class="icon telegram">
-            ✈
-        </div>
+            <div class="icon">
+                f
+            </div>
 
-        <div class="text">
+            <div class="text">
 
-            <strong>
-                Telegram
-            </strong>
+                <strong>
+                    Facebook
+                </strong>
 
-            <span>
-                @meq491
-            </span>
+                <span>
+                    Kunjungi akun Facebook saya
+                </span>
 
-        </div>
+            </div>
 
-    </a>
+            <div class="arrow">
+                ›
+            </div>
+
+        </a>
 
 
-    <!-- INSTAGRAM -->
+        <!-- TELEGRAM -->
 
-    <a
-        class="social"
-        href="https://www.instagram.com/meqq491/"
-        target="_blank"
-        rel="noopener noreferrer"
-    >
+        <a
+            class="social telegram"
+            href="https://t.me/meq491"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
 
-        <div class="icon instagram">
-            ◎
-        </div>
+            <div class="icon">
+                ✈
+            </div>
 
-        <div class="text">
+            <div class="text">
 
-            <strong>
-                Instagram
-            </strong>
+                <strong>
+                    Telegram
+                </strong>
 
-            <span>
-                @meqq491
-            </span>
+                <span>
+                    @meq491
+                </span>
 
-        </div>
+            </div>
 
-    </a>
+            <div class="arrow">
+                ›
+            </div>
+
+        </a>
+
+
+        <!-- INSTAGRAM -->
+
+        <a
+            class="social instagram"
+            href="https://www.instagram.com/meqq491/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+
+            <div class="icon">
+                ◎
+            </div>
+
+            <div class="text">
+
+                <strong>
+                    Instagram
+                </strong>
+
+                <span>
+                    @meqq491
+                </span>
+
+            </div>
+
+            <div class="arrow">
+                ›
+            </div>
+
+        </a>
+
+
+    </div>
+
+
+    <div class="footer">
+        © 2026 MEQ491
+    </div>
 
 
 </div>
