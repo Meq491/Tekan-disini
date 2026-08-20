@@ -3,263 +3,541 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MEQ491 - Sosial Media</title>
+<title>MEQ MEMBAWA TEPAK</title>
 
 <style>
-* {
-    box-sizing: border-box;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #080808;
-    color: white;
-    min-height: 100vh;
+body{
+    font-family:Arial,sans-serif;
+    background:#080808;
+    color:white;
+    min-height:100vh;
 }
 
-.container {
-    max-width: 500px;
-    margin: auto;
-    padding: 30px 20px;
-    text-align: center;
+header{
+    text-align:center;
+    padding:25px 15px 20px;
+    background:linear-gradient(180deg,#151515,#080808);
+    border-bottom:1px solid #292929;
 }
 
-.logo {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    background: #111;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 15px;
-    font-size: 25px;
-    font-weight: bold;
-    border: 2px solid #333;
+.logo{
+    font-size:34px;
+    font-weight:900;
+    letter-spacing:2px;
 }
 
-h1 {
-    margin: 10px 0 5px;
-    font-size: 30px;
+.logo span{
+    color:#00ff88;
 }
 
-.subtitle {
-    color: #aaa;
-    margin-bottom: 30px;
+.subtitle{
+    color:#aaa;
+    margin-top:7px;
+    font-size:14px;
 }
 
-.social {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    text-decoration: none;
-    color: white;
-    background: #151515;
-    border: 1px solid #292929;
-    border-radius: 15px;
-    padding: 15px;
-    margin: 12px 0;
-    transition: 0.2s;
+.menu{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    padding:18px;
+    max-width:700px;
+    margin:auto;
 }
 
-.social:hover {
-    transform: scale(1.02);
-    background: #202020;
+.menu button{
+    border:1px solid #292929;
+    background:#111;
+    color:white;
+    padding:17px 10px;
+    border-radius:14px;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
 }
 
-.icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 25px;
-    font-weight: bold;
+.menu button:hover{
+    transform:scale(1.03);
+    border-color:#00ff88;
 }
 
-.facebook {
-    background: #1877f2;
+.menu button:active{
+    transform:scale(.97);
 }
 
-.telegram {
-    background: #229ed9;
+.content{
+    max-width:700px;
+    margin:auto;
+    padding:0 18px 30px;
 }
 
-.instagram {
-    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+.page{
+    display:none;
+    background:#111;
+    border:1px solid #252525;
+    border-radius:18px;
+    padding:20px;
+    animation:fade .25s ease;
 }
 
-.coffee {
-    width: 100%;
-    border: none;
-    cursor: pointer;
-    color: white;
-    background: #1b1b1b;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    border-radius: 15px;
-    padding: 15px;
-    margin-top: 12px;
-    border: 1px solid #292929;
-    font-size: 16px;
+.page.active{
+    display:block;
 }
 
-.coffee:hover {
-    background: #252525;
+@keyframes fade{
+    from{opacity:0;transform:translateY(8px)}
+    to{opacity:1;transform:translateY(0)}
 }
 
-.coffee-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 12px;
-    background: #8b5a2b;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 25px;
+.page h2{
+    color:#00ff88;
+    margin-bottom:15px;
 }
 
-.text {
-    text-align: left;
+.page h3{
+    margin:18px 0 8px;
+    color:#fff;
 }
 
-.text strong {
-    display: block;
-    font-size: 17px;
+.page p{
+    color:#ccc;
+    line-height:1.7;
+    margin-bottom:10px;
 }
 
-.text span {
-    color: #999;
-    font-size: 13px;
+.back{
+    margin-top:20px;
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:#222;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-#qrBox {
-    display: none;
-    margin-top: 20px;
-    padding: 20px;
-    background: #151515;
-    border: 1px solid #333;
-    border-radius: 18px;
+.back:hover{
+    background:#00ff88;
+    color:#000;
 }
 
-#qrBox h2 {
-    margin-top: 0;
+/* BUAT NGOPI */
+
+.coffee-box{
+    text-align:center;
 }
 
-#qrBox img {
-    width: 100%;
-    max-width: 300px;
-    border-radius: 10px;
-    background: white;
-    padding: 10px;
+.coffee-box h2{
+    font-size:25px;
 }
 
-.close {
-    margin-top: 15px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px;
-    background: #333;
-    color: white;
-    cursor: pointer;
+.coffee-text{
+    color:#aaa;
+    line-height:1.6;
+    margin-bottom:20px;
+}
+
+.qris{
+    display:block;
+    width:100%;
+    max-width:350px;
+    margin:15px auto;
+    border-radius:15px;
+    border:3px solid #00ff88;
+    background:white;
+    padding:8px;
+}
+
+.social-title{
+    margin-top:25px;
+    margin-bottom:12px;
+    color:#aaa;
+}
+
+.social{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.social a{
+    display:block;
+    text-decoration:none;
+    color:white;
+    padding:14px;
+    border-radius:12px;
+    font-weight:bold;
+}
+
+.facebook{
+    background:#1877f2;
+}
+
+.telegram{
+    background:#229ed9;
+}
+
+.instagram{
+    background:linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7);
+}
+
+footer{
+    text-align:center;
+    color:#555;
+    font-size:12px;
+    padding:25px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<header>
+    <div class="logo">
+        MEQ <span>MEMBAWA TEPAK</span>
+    </div>
+    <div class="subtitle">
+        EDUKASI TRADING
+    </div>
+</header>
 
-    <div class="logo">MEQ</div>
+<div class="menu">
 
-    <h1>MEQ491</h1>
-    <div class="subtitle">Sosial Media &amp; BUAT NGOPI</div>
-
-
-    <!-- FACEBOOK -->
-    <a
-        class="social"
-        href="https://www.facebook.com/share/1JuqSUvVT6/"
-        target="_blank"
-        rel="noopener noreferrer"
-    >
-        <div class="icon facebook">f</div>
-        <div class="text">
-            <strong>Facebook</strong>
-            <span>Kunjungi akun Facebook saya</span>
-        </div>
-    </a>
-
-
-    <!-- TELEGRAM -->
-    <a
-        class="social"
-        href="https://t.me/meq491"
-        target="_blank"
-        rel="noopener noreferrer"
-    >
-        <div class="icon telegram">✈</div>
-        <div class="text">
-            <strong>Telegram</strong>
-            <span>@meq491</span>
-        </div>
-    </a>
-
-
-    <!-- INSTAGRAM -->
-    <a
-        class="social"
-        href="https://www.instagram.com/meqq491/"
-        target="_blank"
-        rel="noopener noreferrer"
-    >
-        <div class="icon instagram">◎</div>
-        <div class="text">
-            <strong>Instagram</strong>
-            <span>@meqq491</span>
-        </div>
-    </a>
-
-
-    <!-- BUAT NGOPI -->
-    <button class="coffee" onclick="bukaQR()">
-        <div class="coffee-icon">☕</div>
-        <div class="text">
-            <strong>BUAT NGOPI</strong>
-            <span>Klik untuk melihat QR Code</span>
-        </div>
+    <button onclick="openPage('forex')">
+        📚 DASAR FOREX
     </button>
 
+    <button onclick="openPage('candlestick')">
+        🕯️ CANDLESTICK
+    </button>
 
-    <!-- QR CODE -->
-    <div id="qrBox">
-        <h2>☕ BUAT NGOPI</h2>
-        <p>Scan QR Code di bawah ini</p>
+    <button onclick="openPage('snr')">
+        📈 SNR
+    </button>
 
-        <!-- GANTI qr-code.png DENGAN NAMA FILE QR CODE KAMU -->
-        <img src="qr-code.png" alt="QR Code Buat Ngopi">
+    <button onclick="openPage('snd')">
+        🧱 SND
+    </button>
 
-        <br>
+    <button onclick="openPage('parallel')">
+        📐 PARALLEL CHANNEL
+    </button>
 
-        <button class="close" onclick="tutupQR()">
-            Tutup
-        </button>
-    </div>
+    <button onclick="openPage('fibonacci')">
+        📏 FIBONACCI
+    </button>
+
+    <button onclick="openPage('risk')">
+        🛡️ RISK MANAGEMENT
+    </button>
+
+    <button onclick="openPage('coffee')">
+        ☕ BUAT NGOPI
+    </button>
 
 </div>
 
+<div class="content">
+
+<!-- DASAR FOREX -->
+<section id="forex" class="page">
+    <h2>📚 DASAR FOREX</h2>
+
+    <h3>Apa Itu Forex?</h3>
+    <p>
+        Forex adalah pasar pertukaran mata uang. Trader mencoba
+        mendapatkan keuntungan dari perubahan harga satu mata uang
+        terhadap mata uang lainnya.
+    </p>
+
+    <h3>Contoh XAUUSD</h3>
+    <p>
+        XAUUSD adalah instrumen yang memperlihatkan harga emas
+        terhadap dolar Amerika Serikat.
+    </p>
+
+    <h3>Broker</h3>
+    <p>
+        Broker berfungsi sebagai perantara yang menyediakan akses
+        trader ke pasar dan platform trading.
+    </p>
+
+    <h3>Spread</h3>
+    <p>
+        Spread adalah selisih antara harga Bid dan Ask.
+    </p>
+
+    <h3>Leverage</h3>
+    <p>
+        Leverage memungkinkan trader mengendalikan posisi dengan
+        kebutuhan modal yang lebih kecil, tetapi juga meningkatkan risiko.
+    </p>
+
+    <h3>MT5</h3>
+    <p>
+        MetaTrader 5 digunakan untuk melihat chart, melakukan analisis,
+        membuka posisi, memasang Stop Loss dan Take Profit.
+    </p>
+
+    <button class="back" onclick="home()">← Kembali</button>
+</section>
+
+
+<!-- CANDLESTICK -->
+<section id="candlestick" class="page">
+    <h2>🕯️ CANDLESTICK</h2>
+
+    <p>
+        Candlestick menunjukkan pergerakan harga dalam satu periode.
+    </p>
+
+    <h3>Open</h3>
+    <p>Harga ketika candle mulai terbentuk.</p>
+
+    <h3>High</h3>
+    <p>Harga tertinggi yang dicapai.</p>
+
+    <h3>Low</h3>
+    <p>Harga terendah yang dicapai.</p>
+
+    <h3>Close</h3>
+    <p>Harga ketika candle selesai.</p>
+
+    <h3>Body dan Wick</h3>
+    <p>
+        Body menunjukkan jarak Open sampai Close.
+        Wick menunjukkan pergerakan harga di luar body.
+    </p>
+
+    <button class="back" onclick="home()">← Kembali</button>
+</section>
+
+
+<!-- SNR -->
+<section id="snr" class="page">
+    <h2>📈 SUPPORT & RESISTANCE</h2>
+
+    <h3>Support</h3>
+    <p>
+        Area harga yang sebelumnya sering mendapat tekanan beli
+        sehingga harga berpotensi memantul.
+    </p>
+
+    <h3>Resistance</h3>
+    <p>
+        Area harga yang sebelumnya sering mendapat tekanan jual.
+    </p>
+
+    <h3>Cara Membaca</h3>
+    <p>
+        Cari area yang memiliki reaksi harga yang jelas.
+        Jangan hanya mengandalkan satu candle.
+    </p>
+
+    <button class="back" onclick="home()">← Kembali</button>
+</section>
+
+
+<!-- SND -->
+<section id="snd" class="page">
+    <h2>🧱 SUPPLY & DEMAND</h2>
+
+    <h3>Demand</h3>
+    <p>
+        Area yang menunjukkan adanya tekanan beli kuat.
+    </p>
+
+    <h3>Supply</h3>
+    <p>
+        Area yang menunjukkan adanya tekanan jual kuat.
+    </p>
+
+    <h3>Konfirmasi</h3>
+    <p>
+        Area SND sebaiknya dikombinasikan dengan struktur pasar,
+        support resistance dan konfirmasi timeframe yang lebih kecil.
+    </p>
+
+    <button class="back" onclick="home()">← Kembali</button>
+</section>
+
+
+<!-- PARALLEL CHANNEL -->
+<section id="parallel" class="page">
+    <h2>📐 PARALLEL CHANNEL</h2>
+
+    <p>
+        Parallel Channel digunakan untuk membantu membaca arah
+        pergerakan harga dan area kemungkinan reaksi.
+    </p>
+
+    <h3>Langkah Dasar</h3>
+    <p>
+        Tentukan swing yang jelas kemudian tarik garis mengikuti
+        struktur pergerakan harga.
+    </p>
+
+    <p>
+        Gunakan timeframe besar untuk melihat struktur utama,
+        kemudian turun ke timeframe lebih kecil untuk mencari
+        peluang dan konfirmasi.
+    </p>
+
+    <button class="back" onclick="home()">← Kembali</button>
+</section>
+
+
+<!-- FIBONACCI -->
+<section id="fibonacci" class="page">
+    <h2>📏 FIBONACCI</h2>
+
+    <p>
+        Fibonacci dapat digunakan untuk membantu mengukur area
+        retracement dan menentukan kemungkinan area entry,
+        Stop Loss dan Take Profit.
+    </p>
+
+    <h3>Uptrend</h3>
+    <p>
+        Tarik Fibonacci dari swing Low menuju swing High.
+    </p>
+
+    <h3>Downtrend</h3>
+    <p>
+        Tarik Fibonacci dari swing High menuju swing Low.
+    </p>
+
+    <button class="back" onclick="home()">← Kembali</button>
+</section>
+
+
+<!-- RISK -->
+<section id="risk" class="page">
+    <h2>🛡️ RISK MANAGEMENT</h2>
+
+    <h3>Stop Loss</h3>
+    <p>
+        Stop Loss digunakan untuk membatasi kerugian ketika
+        analisis tidak sesuai dengan pergerakan harga.
+    </p>
+
+    <h3>Take Profit</h3>
+    <p>
+        Take Profit digunakan untuk mengunci keuntungan pada
+        target yang sudah ditentukan.
+    </p>
+
+    <h3>Jangan Berlebihan</h3>
+    <p>
+        Selalu sesuaikan ukuran posisi dengan modal dan risiko.
+        Jangan menggunakan dana yang tidak siap untuk berisiko.
+    </p>
+
+    <button class="back" onclick="home()">← Kembali</button>
+</section>
+
+
+<!-- BUAT NGOPI -->
+<section id="coffee" class="page">
+    <div class="coffee-box">
+
+        <h2>☕ BUAT NGOPI</h2>
+
+        <p class="coffee-text">
+            Jika materi MEQ MEMBAWA TEPAK bermanfaat,
+            kamu bisa mendukung dengan scan QRIS di bawah ini.
+        </p>
+
+        <!-- QRIS -->
+        <img
+            src="qris.png"
+            alt="QRIS MEQ MEMBAWA TEPAK"
+            class="qris"
+        >
+
+        <p class="coffee-text">
+            Terima kasih sudah mendukung MEQ MEMBAWA TEPAK ❤️
+        </p>
+
+        <div class="social-title">
+            Ikuti sosial media:
+        </div>
+
+        <div class="social">
+
+            <a
+                class="facebook"
+                href="https://www.facebook.com/share/1JuqSUvVT6/"
+                target="_blank">
+                📘 Facebook
+            </a>
+
+            <a
+                class="telegram"
+                href="https://t.me/meq491"
+                target="_blank">
+                ✈️ Telegram
+            </a>
+
+            <a
+                class="instagram"
+                href="https://www.instagram.com/meqq491/"
+                target="_blank">
+                📸 Instagram
+            </a>
+
+        </div>
+
+        <button class="back" onclick="home()">
+            ← Kembali
+        </button>
+
+    </div>
+</section>
+
+</div>
+
+<footer>
+    © 2026 MEQ MEMBAWA TEPAK
+</footer>
+
 
 <script>
-function bukaQR() {
-    document.getElementById("qrBox").style.display = "block";
+
+function openPage(id){
+
+    document.querySelectorAll('.page').forEach(function(page){
+        page.classList.remove('active');
+    });
+
+    document.getElementById(id).classList.add('active');
+
+    window.scrollTo({
+        top:0,
+        behavior:'smooth'
+    });
 }
 
-function tutupQR() {
-    document.getElementById("qrBox").style.display = "none";
+function home(){
+
+    document.querySelectorAll('.page').forEach(function(page){
+        page.classList.remove('active');
+    });
+
+    window.scrollTo({
+        top:0,
+        behavior:'smooth'
+    });
 }
+
 </script>
 
 </body>
