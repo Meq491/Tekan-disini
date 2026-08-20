@@ -1,524 +1,118 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MEQ MEMBAWA TEPAK</title>
+<!-- TOMBOL SOSIAL MEDIA -->
+<div class="social-menu">
+
+    <a href="https://www.instagram.com/meqq491/" target="_blank">
+        📸 Instagram
+    </a>
+
+    <a href="https://www.facebook.com/share/1JuqSUvVT6/" target="_blank">
+        📘 Facebook
+    </a>
+
+    <a href="https://t.me/meq491" target="_blank">
+        ✈️ Telegram
+    </a>
+
+    <button onclick="openCoffee()">
+        ☕ Buat Ngopi
+    </button>
+
+</div>
+
+
+<!-- HALAMAN BUAT NGOPI -->
+<div id="coffeePage" class="coffee-page">
+
+    <button onclick="closeCoffee()" class="back-button">
+        ← Kembali
+    </button>
+
+    <h2>☕ BUAT NGOPI</h2>
+
+    <p>
+        Terima kasih sudah mendukung
+        <b>MEQ MEMBAWA TEPAK</b>.
+    </p>
+
+    <!-- FOTO QRIS -->
+    <img
+        src="qris.png"
+        alt="QRIS Buat Ngopi"
+        class="qris-image"
+    >
+
+</div>
+
 
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-body{
-    font-family:Arial,sans-serif;
-    background:#080808;
-    color:white;
-    min-height:100vh;
-}
-
-header{
-    text-align:center;
-    padding:25px 15px 20px;
-    background:linear-gradient(180deg,#151515,#080808);
-    border-bottom:1px solid #292929;
-}
-
-.logo{
-    font-size:34px;
-    font-weight:900;
-    letter-spacing:2px;
-}
-
-.logo span{
-    color:#00ff88;
-}
-
-.subtitle{
-    color:#aaa;
-    margin-top:7px;
-    font-size:14px;
-}
-
-.menu{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
+.social-menu{
+    display:flex;
+    flex-direction:column;
     gap:12px;
-    padding:18px;
-    max-width:700px;
-    margin:auto;
 }
 
-.menu button{
-    border:1px solid #292929;
-    background:#111;
+.social-menu a,
+.social-menu button{
+    width:100%;
+    padding:15px;
+    border:0;
+    border-radius:12px;
+    background:#151515;
     color:white;
-    padding:17px 10px;
-    border-radius:14px;
-    font-size:15px;
+    text-decoration:none;
+    text-align:center;
+    font-size:16px;
     font-weight:bold;
-    cursor:pointer;
-    transition:.2s;
 }
 
-.menu button:hover{
-    transform:scale(1.03);
-    border-color:#00ff88;
+.social-menu a:hover,
+.social-menu button:hover{
+    background:#222;
 }
 
-.menu button:active{
-    transform:scale(.97);
-}
-
-.content{
-    max-width:700px;
-    margin:auto;
-    padding:0 18px 30px;
-}
-
-.page{
+.coffee-page{
     display:none;
-    background:#111;
-    border:1px solid #252525;
-    border-radius:18px;
     padding:20px;
-    animation:fade .25s ease;
+    text-align:center;
 }
 
-.page.active{
-    display:block;
-}
-
-@keyframes fade{
-    from{opacity:0;transform:translateY(8px)}
-    to{opacity:1;transform:translateY(0)}
-}
-
-.page h2{
+.coffee-page h2{
     color:#00ff88;
-    margin-bottom:15px;
+    margin:20px 0 10px;
 }
 
-.page h3{
-    margin:18px 0 8px;
-    color:#fff;
-}
-
-.page p{
+.coffee-page p{
     color:#ccc;
-    line-height:1.7;
-    margin-bottom:10px;
+    margin-bottom:20px;
 }
 
-.back{
-    margin-top:20px;
+.qris-image{
+    display:block;
+    width:100%;
+    max-width:380px;
+    height:auto;
+    margin:20px auto;
+    padding:8px;
+    background:white;
+    border-radius:15px;
+}
+
+.back-button{
     width:100%;
     padding:14px;
-    border:none;
+    border:0;
     border-radius:12px;
     background:#222;
     color:white;
     font-weight:bold;
-    cursor:pointer;
-}
-
-.back:hover{
-    background:#00ff88;
-    color:#000;
-}
-
-/* BUAT NGOPI */
-
-.coffee-box{
-    text-align:center;
-}
-
-.coffee-box h2{
-    font-size:25px;
-}
-
-.coffee-text{
-    color:#aaa;
-    line-height:1.6;
-    margin-bottom:20px;
-}
-
-.qris{
-    display:block;
-    width:100%;
-    max-width:350px;
-    margin:15px auto;
-    border-radius:15px;
-    border:3px solid #00ff88;
-    background:white;
-    padding:8px;
-}
-
-.social-title{
-    margin-top:25px;
-    margin-bottom:12px;
-    color:#aaa;
-}
-
-.social{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-}
-
-.social a{
-    display:block;
-    text-decoration:none;
-    color:white;
-    padding:14px;
-    border-radius:12px;
-    font-weight:bold;
-}
-
-.facebook{
-    background:#1877f2;
-}
-
-.telegram{
-    background:#229ed9;
-}
-
-.instagram{
-    background:linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7);
-}
-
-footer{
-    text-align:center;
-    color:#555;
-    font-size:12px;
-    padding:25px;
 }
 </style>
-</head>
-
-<body>
-
-<header>
-    <div class="logo">
-        MEQ <span>MEMBAWA TEPAK</span>
-    </div>
-    <div class="subtitle">
-        EDUKASI TRADING
-    </div>
-</header>
-
-<div class="menu">
-
-    <button onclick="openPage('forex')">
-        📚 DASAR FOREX
-    </button>
-
-    <button onclick="openPage('candlestick')">
-        🕯️ CANDLESTICK
-    </button>
-
-    <button onclick="openPage('snr')">
-        📈 SNR
-    </button>
-
-    <button onclick="openPage('snd')">
-        🧱 SND
-    </button>
-
-    <button onclick="openPage('parallel')">
-        📐 PARALLEL CHANNEL
-    </button>
-
-    <button onclick="openPage('fibonacci')">
-        📏 FIBONACCI
-    </button>
-
-    <button onclick="openPage('risk')">
-        🛡️ RISK MANAGEMENT
-    </button>
-
-    <button onclick="openPage('coffee')">
-        ☕ BUAT NGOPI
-    </button>
-
-</div>
-
-<div class="content">
-
-<!-- DASAR FOREX -->
-<section id="forex" class="page">
-    <h2>📚 DASAR FOREX</h2>
-
-    <h3>Apa Itu Forex?</h3>
-    <p>
-        Forex adalah pasar pertukaran mata uang. Trader mencoba
-        mendapatkan keuntungan dari perubahan harga satu mata uang
-        terhadap mata uang lainnya.
-    </p>
-
-    <h3>Contoh XAUUSD</h3>
-    <p>
-        XAUUSD adalah instrumen yang memperlihatkan harga emas
-        terhadap dolar Amerika Serikat.
-    </p>
-
-    <h3>Broker</h3>
-    <p>
-        Broker berfungsi sebagai perantara yang menyediakan akses
-        trader ke pasar dan platform trading.
-    </p>
-
-    <h3>Spread</h3>
-    <p>
-        Spread adalah selisih antara harga Bid dan Ask.
-    </p>
-
-    <h3>Leverage</h3>
-    <p>
-        Leverage memungkinkan trader mengendalikan posisi dengan
-        kebutuhan modal yang lebih kecil, tetapi juga meningkatkan risiko.
-    </p>
-
-    <h3>MT5</h3>
-    <p>
-        MetaTrader 5 digunakan untuk melihat chart, melakukan analisis,
-        membuka posisi, memasang Stop Loss dan Take Profit.
-    </p>
-
-    <button class="back" onclick="home()">← Kembali</button>
-</section>
-
-
-<!-- CANDLESTICK -->
-<section id="candlestick" class="page">
-    <h2>🕯️ CANDLESTICK</h2>
-
-    <p>
-        Candlestick menunjukkan pergerakan harga dalam satu periode.
-    </p>
-
-    <h3>Open</h3>
-    <p>Harga ketika candle mulai terbentuk.</p>
-
-    <h3>High</h3>
-    <p>Harga tertinggi yang dicapai.</p>
-
-    <h3>Low</h3>
-    <p>Harga terendah yang dicapai.</p>
-
-    <h3>Close</h3>
-    <p>Harga ketika candle selesai.</p>
-
-    <h3>Body dan Wick</h3>
-    <p>
-        Body menunjukkan jarak Open sampai Close.
-        Wick menunjukkan pergerakan harga di luar body.
-    </p>
-
-    <button class="back" onclick="home()">← Kembali</button>
-</section>
-
-
-<!-- SNR -->
-<section id="snr" class="page">
-    <h2>📈 SUPPORT & RESISTANCE</h2>
-
-    <h3>Support</h3>
-    <p>
-        Area harga yang sebelumnya sering mendapat tekanan beli
-        sehingga harga berpotensi memantul.
-    </p>
-
-    <h3>Resistance</h3>
-    <p>
-        Area harga yang sebelumnya sering mendapat tekanan jual.
-    </p>
-
-    <h3>Cara Membaca</h3>
-    <p>
-        Cari area yang memiliki reaksi harga yang jelas.
-        Jangan hanya mengandalkan satu candle.
-    </p>
-
-    <button class="back" onclick="home()">← Kembali</button>
-</section>
-
-
-<!-- SND -->
-<section id="snd" class="page">
-    <h2>🧱 SUPPLY & DEMAND</h2>
-
-    <h3>Demand</h3>
-    <p>
-        Area yang menunjukkan adanya tekanan beli kuat.
-    </p>
-
-    <h3>Supply</h3>
-    <p>
-        Area yang menunjukkan adanya tekanan jual kuat.
-    </p>
-
-    <h3>Konfirmasi</h3>
-    <p>
-        Area SND sebaiknya dikombinasikan dengan struktur pasar,
-        support resistance dan konfirmasi timeframe yang lebih kecil.
-    </p>
-
-    <button class="back" onclick="home()">← Kembali</button>
-</section>
-
-
-<!-- PARALLEL CHANNEL -->
-<section id="parallel" class="page">
-    <h2>📐 PARALLEL CHANNEL</h2>
-
-    <p>
-        Parallel Channel digunakan untuk membantu membaca arah
-        pergerakan harga dan area kemungkinan reaksi.
-    </p>
-
-    <h3>Langkah Dasar</h3>
-    <p>
-        Tentukan swing yang jelas kemudian tarik garis mengikuti
-        struktur pergerakan harga.
-    </p>
-
-    <p>
-        Gunakan timeframe besar untuk melihat struktur utama,
-        kemudian turun ke timeframe lebih kecil untuk mencari
-        peluang dan konfirmasi.
-    </p>
-
-    <button class="back" onclick="home()">← Kembali</button>
-</section>
-
-
-<!-- FIBONACCI -->
-<section id="fibonacci" class="page">
-    <h2>📏 FIBONACCI</h2>
-
-    <p>
-        Fibonacci dapat digunakan untuk membantu mengukur area
-        retracement dan menentukan kemungkinan area entry,
-        Stop Loss dan Take Profit.
-    </p>
-
-    <h3>Uptrend</h3>
-    <p>
-        Tarik Fibonacci dari swing Low menuju swing High.
-    </p>
-
-    <h3>Downtrend</h3>
-    <p>
-        Tarik Fibonacci dari swing High menuju swing Low.
-    </p>
-
-    <button class="back" onclick="home()">← Kembali</button>
-</section>
-
-
-<!-- RISK -->
-<section id="risk" class="page">
-    <h2>🛡️ RISK MANAGEMENT</h2>
-
-    <h3>Stop Loss</h3>
-    <p>
-        Stop Loss digunakan untuk membatasi kerugian ketika
-        analisis tidak sesuai dengan pergerakan harga.
-    </p>
-
-    <h3>Take Profit</h3>
-    <p>
-        Take Profit digunakan untuk mengunci keuntungan pada
-        target yang sudah ditentukan.
-    </p>
-
-    <h3>Jangan Berlebihan</h3>
-    <p>
-        Selalu sesuaikan ukuran posisi dengan modal dan risiko.
-        Jangan menggunakan dana yang tidak siap untuk berisiko.
-    </p>
-
-    <button class="back" onclick="home()">← Kembali</button>
-</section>
-
-
-<!-- BUAT NGOPI -->
-<section id="coffee" class="page">
-    <div class="coffee-box">
-
-        <h2>☕ BUAT NGOPI</h2>
-
-        <p class="coffee-text">
-            Jika materi MEQ MEMBAWA TEPAK bermanfaat,
-            kamu bisa mendukung dengan scan QRIS di bawah ini.
-        </p>
-
-        <!-- QRIS -->
-        <img
-            src="qris.png"
-            alt="QRIS MEQ MEMBAWA TEPAK"
-            class="qris"
-        >
-
-        <p class="coffee-text">
-            Terima kasih sudah mendukung MEQ MEMBAWA TEPAK ❤️
-        </p>
-
-        <div class="social-title">
-            Ikuti sosial media:
-        </div>
-
-        <div class="social">
-
-            <a
-                class="facebook"
-                href="https://www.facebook.com/share/1JuqSUvVT6/"
-                target="_blank">
-                📘 Facebook
-            </a>
-
-            <a
-                class="telegram"
-                href="https://t.me/meq491"
-                target="_blank">
-                ✈️ Telegram
-            </a>
-
-            <a
-                class="instagram"
-                href="https://www.instagram.com/meqq491/"
-                target="_blank">
-                📸 Instagram
-            </a>
-
-        </div>
-
-        <button class="back" onclick="home()">
-            ← Kembali
-        </button>
-
-    </div>
-</section>
-
-</div>
-
-<footer>
-    © 2026 MEQ MEMBAWA TEPAK
-</footer>
 
 
 <script>
-
-function openPage(id){
-
-    document.querySelectorAll('.page').forEach(function(page){
-        page.classList.remove('active');
-    });
-
-    document.getElementById(id).classList.add('active');
+function openCoffee(){
+    document.querySelector('.social-menu').style.display = 'none';
+    document.getElementById('coffeePage').style.display = 'block';
 
     window.scrollTo({
         top:0,
@@ -526,19 +120,13 @@ function openPage(id){
     });
 }
 
-function home(){
-
-    document.querySelectorAll('.page').forEach(function(page){
-        page.classList.remove('active');
-    });
+function closeCoffee(){
+    document.getElementById('coffeePage').style.display = 'none';
+    document.querySelector('.social-menu').style.display = 'flex';
 
     window.scrollTo({
         top:0,
         behavior:'smooth'
     });
 }
-
 </script>
-
-</body>
-</html>
