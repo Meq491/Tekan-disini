@@ -1,31 +1,35 @@
-<!-- MENU UTAMA -->
-<div class="menu">
+<!-- SOSIAL MEDIA -->
+<div class="social-menu">
 
-    <button onclick="buka('instagram')">
-        📸 Instagram
+    <button class="social-btn instagram" onclick="buka('instagram')">
+        <span class="social-icon">◎</span>
+        <span>Instagram</span>
     </button>
 
-    <button onclick="buka('facebook')">
-        📘 Facebook
+    <button class="social-btn facebook" onclick="buka('facebook')">
+        <span class="social-icon">f</span>
+        <span>Facebook</span>
     </button>
 
-    <button onclick="buka('telegram')">
-        ✈️ Telegram
+    <button class="social-btn telegram" onclick="buka('telegram')">
+        <span class="social-icon">➤</span>
+        <span>Telegram</span>
     </button>
 
 </div>
 
 
 <!-- HALAMAN INSTAGRAM -->
-<div id="instagram" class="halaman">
+<div id="instagram" class="halaman-sosmed">
 
-    <h2>📸 Instagram</h2>
+    <div class="logo-instagram">◎</div>
 
+    <h2>Instagram</h2>
     <p>@meqq491</p>
 
     <a href="https://www.instagram.com/meqq491/"
        target="_blank"
-       class="akun">
+       class="buka-akun instagram-bg">
        Buka Instagram
     </a>
 
@@ -37,15 +41,16 @@
 
 
 <!-- HALAMAN FACEBOOK -->
-<div id="facebook" class="halaman">
+<div id="facebook" class="halaman-sosmed">
 
-    <h2>📘 Facebook</h2>
+    <div class="logo-facebook">f</div>
 
+    <h2>Facebook</h2>
     <p>MEQ MEMBAWA TEPAK</p>
 
     <a href="https://www.facebook.com/share/1JuqSUvVT6/"
        target="_blank"
-       class="akun">
+       class="buka-akun facebook-bg">
        Buka Facebook
     </a>
 
@@ -57,15 +62,16 @@
 
 
 <!-- HALAMAN TELEGRAM -->
-<div id="telegram" class="halaman">
+<div id="telegram" class="halaman-sosmed">
 
-    <h2>✈️ Telegram</h2>
+    <div class="logo-telegram">➤</div>
 
+    <h2>Telegram</h2>
     <p>@meq491</p>
 
     <a href="https://t.me/meq491"
        target="_blank"
-       class="akun">
+       class="buka-akun telegram-bg">
        Buka Telegram
     </a>
 
@@ -78,64 +84,176 @@
 
 <style>
 
-.menu{
+/* MENU SOSMED */
+
+.social-menu{
     display:flex;
     flex-direction:column;
-    gap:12px;
-    max-width:600px;
+    gap:16px;
+    width:100%;
+    max-width:650px;
     margin:20px auto;
 }
 
-.menu button{
-    padding:16px;
-    border-radius:14px;
-    background:#151515;
-    border:1px solid #333;
+.social-btn{
+    width:100%;
+    min-height:70px;
+    border:none;
+    border-radius:18px;
     color:white;
-    font-size:16px;
-    font-weight:bold;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:18px;
+    padding:15px 22px;
+    font-size:20px;
+    font-weight:800;
+    cursor:pointer;
+    box-shadow:0 6px 18px rgba(0,0,0,.35);
 }
 
-.halaman{
+.social-icon{
+    width:45px;
+    height:45px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(255,255,255,.18);
+    font-size:29px;
+    font-weight:900;
+}
+
+/* WARNA APLIKASI */
+
+.instagram{
+    background:linear-gradient(
+        135deg,
+        #833ab4,
+        #fd1d1d,
+        #fcb045
+    );
+}
+
+.facebook{
+    background:#1877f2;
+}
+
+.telegram{
+    background:#229ed9;
+}
+
+
+/* HALAMAN */
+
+.halaman-sosmed{
     display:none;
-    max-width:600px;
+    width:100%;
+    max-width:650px;
     margin:20px auto;
-    padding:25px;
+    padding:30px 20px;
     text-align:center;
     background:#111;
-    border:1px solid #333;
-    border-radius:18px;
+    border:1px solid #292929;
+    border-radius:20px;
 }
 
-.halaman h2{
-    color:#00ff88;
-    margin-bottom:15px;
+.halaman-sosmed h2{
+    color:white;
+    font-size:27px;
+    margin:12px 0 8px;
 }
 
-.halaman p{
+.halaman-sosmed p{
     color:#aaa;
-    margin-bottom:20px;
+    font-size:17px;
+    margin-bottom:25px;
 }
 
-.akun{
-    display:block;
-    padding:15px;
-    border-radius:12px;
-    background:#00ff88;
-    color:#000;
-    text-decoration:none;
-    font-weight:bold;
+
+/* LOGO BESAR */
+
+.logo-instagram,
+.logo-facebook,
+.logo-telegram{
+    width:80px;
+    height:80px;
+    margin:auto;
+    border-radius:22px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:48px;
+    font-weight:900;
 }
+
+.logo-instagram{
+    background:linear-gradient(
+        135deg,
+        #833ab4,
+        #fd1d1d,
+        #fcb045
+    );
+}
+
+.logo-facebook{
+    background:#1877f2;
+}
+
+.logo-telegram{
+    background:#229ed9;
+}
+
+
+/* TOMBOL BUKA AKUN */
+
+.buka-akun{
+    display:block;
+    width:100%;
+    padding:17px;
+    border-radius:14px;
+    color:white;
+    text-decoration:none;
+    font-size:17px;
+    font-weight:800;
+}
+
+.instagram-bg{
+    background:linear-gradient(
+        135deg,
+        #833ab4,
+        #fd1d1d,
+        #fcb045
+    );
+}
+
+.facebook-bg{
+    background:#1877f2;
+}
+
+.telegram-bg{
+    background:#229ed9;
+}
+
+
+/* KEMBALI */
 
 .kembali{
     width:100%;
-    margin-top:12px;
-    padding:14px;
-    border:0;
-    border-radius:12px;
-    background:#222;
+    margin-top:14px;
+    padding:16px;
+    border:1px solid #333;
+    border-radius:14px;
+    background:#1b1b1b;
     color:white;
+    font-size:16px;
     font-weight:bold;
+    cursor:pointer;
+}
+
+.kembali:hover{
+    background:#292929;
 }
 
 </style>
@@ -145,26 +263,32 @@
 
 function buka(nama){
 
-    document.querySelector('.menu').style.display='none';
+    document.querySelector('.social-menu').style.display='none';
 
-    document.querySelectorAll('.halaman').forEach(function(x){
-        x.style.display='none';
+    document.querySelectorAll('.halaman-sosmed').forEach(function(halaman){
+        halaman.style.display='none';
     });
 
     document.getElementById(nama).style.display='block';
 
-    window.scrollTo(0,0);
+    window.scrollTo({
+        top:0,
+        behavior:'smooth'
+    });
 }
 
 function kembali(){
 
-    document.querySelectorAll('.halaman').forEach(function(x){
-        x.style.display='none';
+    document.querySelectorAll('.halaman-sosmed').forEach(function(halaman){
+        halaman.style.display='none';
     });
 
-    document.querySelector('.menu').style.display='flex';
+    document.querySelector('.social-menu').style.display='flex';
 
-    window.scrollTo(0,0);
+    window.scrollTo({
+        top:0,
+        behavior:'smooth'
+    });
 }
 
 </script>
