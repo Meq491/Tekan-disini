@@ -1,19 +1,170 @@
-<div id="ngopi" class="halaman">
+<!-- MENU UTAMA -->
+<div class="menu">
 
-    <h2>☕ BUAT NGOPI</h2>
+    <button onclick="buka('instagram')">
+        📸 Instagram
+    </button>
 
-    <p>
-        Terima kasih sudah mendukung
-        <b>MEQ MEMBAWA TEPAK</b>.
-    </p>
+    <button onclick="buka('facebook')">
+        📘 Facebook
+    </button>
 
-    <img
-        src="qris.png"
-        alt="Buat Ngopi"
-        class="foto-qris">
+    <button onclick="buka('telegram')">
+        ✈️ Telegram
+    </button>
 
-    <button onclick="kembali()" class="btn-kembali">
+</div>
+
+
+<!-- HALAMAN INSTAGRAM -->
+<div id="instagram" class="halaman">
+
+    <h2>📸 Instagram</h2>
+
+    <p>@meqq491</p>
+
+    <a href="https://www.instagram.com/meqq491/"
+       target="_blank"
+       class="akun">
+       Buka Instagram
+    </a>
+
+    <button onclick="kembali()" class="kembali">
         ← Kembali
     </button>
 
 </div>
+
+
+<!-- HALAMAN FACEBOOK -->
+<div id="facebook" class="halaman">
+
+    <h2>📘 Facebook</h2>
+
+    <p>MEQ MEMBAWA TEPAK</p>
+
+    <a href="https://www.facebook.com/share/1JuqSUvVT6/"
+       target="_blank"
+       class="akun">
+       Buka Facebook
+    </a>
+
+    <button onclick="kembali()" class="kembali">
+        ← Kembali
+    </button>
+
+</div>
+
+
+<!-- HALAMAN TELEGRAM -->
+<div id="telegram" class="halaman">
+
+    <h2>✈️ Telegram</h2>
+
+    <p>@meq491</p>
+
+    <a href="https://t.me/meq491"
+       target="_blank"
+       class="akun">
+       Buka Telegram
+    </a>
+
+    <button onclick="kembali()" class="kembali">
+        ← Kembali
+    </button>
+
+</div>
+
+
+<style>
+
+.menu{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    max-width:600px;
+    margin:20px auto;
+}
+
+.menu button{
+    padding:16px;
+    border-radius:14px;
+    background:#151515;
+    border:1px solid #333;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+}
+
+.halaman{
+    display:none;
+    max-width:600px;
+    margin:20px auto;
+    padding:25px;
+    text-align:center;
+    background:#111;
+    border:1px solid #333;
+    border-radius:18px;
+}
+
+.halaman h2{
+    color:#00ff88;
+    margin-bottom:15px;
+}
+
+.halaman p{
+    color:#aaa;
+    margin-bottom:20px;
+}
+
+.akun{
+    display:block;
+    padding:15px;
+    border-radius:12px;
+    background:#00ff88;
+    color:#000;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.kembali{
+    width:100%;
+    margin-top:12px;
+    padding:14px;
+    border:0;
+    border-radius:12px;
+    background:#222;
+    color:white;
+    font-weight:bold;
+}
+
+</style>
+
+
+<script>
+
+function buka(nama){
+
+    document.querySelector('.menu').style.display='none';
+
+    document.querySelectorAll('.halaman').forEach(function(x){
+        x.style.display='none';
+    });
+
+    document.getElementById(nama).style.display='block';
+
+    window.scrollTo(0,0);
+}
+
+function kembali(){
+
+    document.querySelectorAll('.halaman').forEach(function(x){
+        x.style.display='none';
+    });
+
+    document.querySelector('.menu').style.display='flex';
+
+    window.scrollTo(0,0);
+}
+
+</script>
